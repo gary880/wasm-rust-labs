@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# WASM Rust Labs 
+A hands-on experimental platform exploring the integration of Rust (WebAssembly) within a React (Vite) environment. This project demonstrates various use cases for Rust WASM across different pages, focusing on performance, logic sharing, and seamless interoperability.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Key Features
+Rust + React Integration: Leverages wasm-pack and Vite plugins for a streamlined build and load experience.
 
-Currently, two official plugins are available:
+Multi-Page Demos: Dedicated routes/pages showcasing specific Rust-powered features (e.g., heavy computations, calculators).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+TypeScript Support: Fully typed interfaces for safe and predictable communication between Rust and JavaScript.
 
-## React Compiler
+Modern Tooling: Powered by Vite for Hot Module Replacement (HMR) and fast developer feedback loops.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
+Frontend: React, TypeScript, Vite
 
-## Expanding the ESLint configuration
+WASM Core: Rust, wasm-bindgen, wasm-pack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Routing: React Router (for page-based demonstrations)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── rust-libs/          # Rust source code and compiled WASM modules
+│   └── src/            # Rust logic (e.g., calculator, algorithms)
+├── src/
+│   ├── pages/          # Individual pages for different WASM demos
+│   ├── hooks/          # Custom hooks for managing WASM lifecycle
+│   └── App.tsx         # Main entry and routing
+└── vite.config.ts      # Vite configuration with WASM plugin support
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
+Prerequisites
+Ensure you have the following installed:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Rust & Cargo
+wasm-pack
+Node.js (v18 or later recommended)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Step 1: Build the Rust WASM Module
+Navigate to the rust-libs directory and compile the Rust code to WASM:
+
+```Bash
+
+cd rust-libs
+wasm-pack build --target web
+Step 2: Launch the React App
+Return to the root directory, install dependencies, and start the development server:
+
 ```
+
+## From the root directory
+```bash
+npm install
+npm run dev
+```
+
+
+📄 License
+This project is open-sourced under the MIT License.
