@@ -33,8 +33,8 @@ const CalculatorPage = () => {
         boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
       }}
     >
-      <h2 style={{ marginTop: 0, color: "#646cff" }}>
-        WASM Scientific Calculator
+      <h2 style={{ marginTop: 0, color: "white" }}>
+        WASM Calculator
       </h2>
 
       <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>

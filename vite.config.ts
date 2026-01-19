@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@calculator": "/rust-libs/calculator/pkg",
+      "@snake": "/rust-libs/snake/pkg",
     },
   },
 });

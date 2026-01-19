@@ -2,7 +2,8 @@
 
 [workspace]
 members = [
-    "calculator"
+    "calculator",
+    "snake"
 ]
 resolver = "2"
 
